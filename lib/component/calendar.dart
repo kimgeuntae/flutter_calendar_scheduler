@@ -19,6 +19,11 @@ class _CalendarState extends State<Calendar> {
       color: Colors.grey[200],
     );
 
+    final defaultTextStyle = TextStyle(
+      color: Colors.grey[600],
+      fontWeight: FontWeight.w700,
+    );
+
     return TableCalendar(
       focusedDay: DateTime.now(),
       firstDay: DateTime(1800),
@@ -32,18 +37,22 @@ class _CalendarState extends State<Calendar> {
         ),
       ),
       calendarStyle: CalendarStyle(
-        isTodayHighlighted: false,
-        defaultDecoration: defaultBoxDeco,
-        weekendDecoration: defaultBoxDeco,
-        selectedDecoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(2.0),
-          border: Border.all(
-            color: PRIMARY_COLOR,
-            width: 1.0,
+          isTodayHighlighted: false,
+          defaultDecoration: defaultBoxDeco, // 평일
+          weekendDecoration: defaultBoxDeco,
+          selectedDecoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(2.0),
+            border: Border.all(
+              color: PRIMARY_COLOR,
+              width: 1.0,
+            ),
           ),
-        ),
-      ),
+          defaultTextStyle: defaultTextStyle,
+          weekendTextStyle: defaultTextStyle,
+          selectedTextStyle: defaultTextStyle.copyWith(
+            color: PRIMARY_COLOR,
+          )),
       onDaySelected: (DateTime selectedDay, DateTime focusedDay) {
         print(selectedDay);
         setState(() {
