@@ -48,6 +48,10 @@ class _CalendarState extends State<Calendar> {
               width: 1.0,
             ),
           ),
+          // 선택 월 밖의 날짜 데코레이션은 기본 서클.
+          outsideDecoration: BoxDecoration(
+            shape: BoxShape.rectangle,
+          ),
           defaultTextStyle: defaultTextStyle,
           weekendTextStyle: defaultTextStyle,
           selectedTextStyle: defaultTextStyle.copyWith(
