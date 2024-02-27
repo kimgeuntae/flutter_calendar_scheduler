@@ -13,6 +13,11 @@ class _CalendarState extends State<Calendar> {
 
   @override
   Widget build(BuildContext context) {
+    final defaultBoxDeco = BoxDecoration(
+      borderRadius: BorderRadius.circular(6.0),
+      color: Colors.grey[200],
+    );
+
     return TableCalendar(
       focusedDay: DateTime.now(),
       firstDay: DateTime(1800),
@@ -27,6 +32,8 @@ class _CalendarState extends State<Calendar> {
       ),
       calendarStyle: CalendarStyle(
         isTodayHighlighted: false,
+        defaultDecoration: defaultBoxDeco,
+        weekendDecoration: defaultBoxDeco,
       ),
       onDaySelected: (DateTime selectedDay, DateTime focusedDay) {
         print(selectedDay);
