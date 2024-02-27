@@ -25,6 +25,9 @@ class _CalendarState extends State<Calendar> {
           fontSize: 16.0,
         ),
       ),
+      calendarStyle: CalendarStyle(
+        isTodayHighlighted: false,
+      ),
       onDaySelected: (DateTime selectedDay, DateTime focusedDay) {
         print(selectedDay);
         setState(() {
