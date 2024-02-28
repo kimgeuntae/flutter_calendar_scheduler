@@ -10,7 +10,11 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  DateTime? selectedDay;
+  DateTime selectedDay = DateTime(
+    DateTime.now().year,
+    DateTime.now().month,
+    DateTime.now().day,
+  );
   DateTime focusedDay = DateTime.now();
 
   @override
@@ -26,7 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             SizedBox(height: 8.0),
             TodayBanner(
-              selectedDay: DateTime.now(),
+              selectedDay: selectedDay,
               scheduleCount: 3,
             ),
           ],
