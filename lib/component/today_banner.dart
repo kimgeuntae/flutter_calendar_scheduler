@@ -1,3 +1,4 @@
+import 'package:calendar_scheduler/const/colors.dart';
 import 'package:flutter/material.dart';
 
 class TodayBanner extends StatelessWidget {
@@ -12,14 +13,17 @@ class TodayBanner extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(
-          '${selectedDay.year}년 ${selectedDay.month}월 ${selectedDay.day}일',
-        ),
-        Text('$scheduleCount개'),
-      ],
+    return Container(
+      color: PRIMARY_COLOR,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            '${selectedDay.year}년 ${selectedDay.month}월 ${selectedDay.day}일',
+          ),
+          Text('$scheduleCount개'),
+        ],
+      ),
     );
   }
 }
