@@ -11,6 +11,7 @@ class Calendar extends StatefulWidget {
 
 class _CalendarState extends State<Calendar> {
   DateTime? selectedDay;
+  DateTime focusedDay = DateTime.now();
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +26,8 @@ class _CalendarState extends State<Calendar> {
     );
 
     return TableCalendar(
-      focusedDay: DateTime.now(),
+      locale: 'ko_KR',
+      focusedDay: focusedDay,
       firstDay: DateTime(1800),
       lastDay: DateTime(3009),
       headerStyle: HeaderStyle(
@@ -48,7 +50,7 @@ class _CalendarState extends State<Calendar> {
               width: 1.0,
             ),
           ),
-          // 선택 월 밖의 날짜 데코레이션은 기본 서클.
+          // 선택 월 밖의 날짜 데코레이션은 기본 서클
           outsideDecoration: BoxDecoration(
             shape: BoxShape.rectangle,
           ),
@@ -61,6 +63,8 @@ class _CalendarState extends State<Calendar> {
         print(selectedDay);
         setState(() {
           this.selectedDay = selectedDay;
+          // 선택날짜를 포커스 데이트로 지정해줌으로써 해당 월로 이동 가능
+          this.focusedDay = selectedDay;
         });
       },
       selectedDayPredicate: (DateTime date) {
