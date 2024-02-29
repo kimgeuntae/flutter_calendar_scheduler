@@ -47,7 +47,17 @@ class _HomeScreenState extends State<HomeScreen> {
 
   FloatingActionButton renderFloatingActionButton() {
     return FloatingActionButton(
-      onPressed: () {},
+      onPressed: () {
+        showModalBottomSheet(
+          context: context,
+          builder: (context) {
+            return Container(
+              height: 300.0,
+              color: Colors.white,
+            );
+          },
+        );
+      },
       backgroundColor: PRIMARY_COLOR,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(30.0)),
