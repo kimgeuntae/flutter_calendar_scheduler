@@ -51,6 +51,7 @@ class _Time extends StatelessWidget {
     );
 
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         // padLeft: 빈공간을 지정문자로 채우기.
         Text(
@@ -59,7 +60,9 @@ class _Time extends StatelessWidget {
         ),
         Text(
           '${endTime.toString().padLeft(2, '0')}:00',
-          style: textStyle,
+          style: textStyle.copyWith(
+            fontSize: 10.0,
+          ),
         ),
       ],
     );
