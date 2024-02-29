@@ -45,8 +45,9 @@ class _Time extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text('$startTime:00'),
-        Text('$endTime:00'),
+        // padLeft: 빈공간을 지정문자로 채우기.
+        Text('${startTime.toString().padLeft(2, '0')}:00'),
+        Text('${endTime.toString().padLeft(2, '0')}:00'),
       ],
     );
   }

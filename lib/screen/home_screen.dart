@@ -36,8 +36,8 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             SizedBox(height: 8.0),
             ScheduleCard(
-              startTime: 12,
-              endTime: 14,
+              startTime: 8,
+              endTime: 9,
               content: '프로그래밍 공부하기',
               color: Colors.red,
             ),
