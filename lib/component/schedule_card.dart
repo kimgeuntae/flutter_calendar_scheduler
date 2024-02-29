@@ -26,6 +26,10 @@ class ScheduleCard extends StatelessWidget {
             startTime: startTime,
             endTime: endTime,
           ),
+          SizedBox(
+            width: 16.0,
+          ),
+          _Content(content: content),
         ],
       ),
     );
@@ -66,5 +70,19 @@ class _Time extends StatelessWidget {
         ),
       ],
     );
+  }
+}
+
+class _Content extends StatelessWidget {
+  final String content;
+
+  const _Content({
+    required this.content,
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(content);
   }
 }
