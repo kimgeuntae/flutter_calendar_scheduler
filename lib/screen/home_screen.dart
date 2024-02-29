@@ -1,6 +1,7 @@
 import 'package:calendar_scheduler/component/calendar.dart';
 import 'package:calendar_scheduler/component/schedule_card.dart';
 import 'package:calendar_scheduler/component/today_banner.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -35,13 +36,24 @@ class _HomeScreenState extends State<HomeScreen> {
               scheduleCount: 3,
             ),
             SizedBox(height: 8.0),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8.0),
-              child: ScheduleCard(
-                startTime: 8,
-                endTime: 14,
-                content: '프로그래밍 공부하기',
-                color: Colors.red,
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                child: ListView.separated(
+                  // 아이템 카운트만큼 return 값 빌드, 해당 카운트에 도달했을때 새롭게 만듬.
+                  // 예를들어 현재 보고있는게 5번째라면 6번째이후는 아직 안만들어졌기때문에 메모리에 효과적.
+                  itemCount: 10,
+                  itemBuilder: (context, index) {
+                    return ScheduleCard(
+                      startTime: 8,
+                      endTime: 14,
+                      content: '프로그래밍 공부하기 $index',
+                      color: Colors.red,
+                    );
+                  },
+                  // item 사이에 return 값을 추가해줘서 구분선을 넣는데 사용.
+                  separatorBuilder: (context, index) => SizedBox(height: 8.0),
+                ),
               ),
             ),
           ],
