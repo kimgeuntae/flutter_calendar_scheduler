@@ -1,3 +1,4 @@
+import 'package:calendar_scheduler/const/colors.dart';
 import 'package:flutter/material.dart';
 
 class ScheduleCard extends StatelessWidget {
@@ -43,11 +44,23 @@ class _Time extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textStyle = TextStyle(
+      fontWeight: FontWeight.w600,
+      color: PRIMARY_COLOR,
+      fontSize: 16.0,
+    );
+
     return Column(
       children: [
         // padLeft: 빈공간을 지정문자로 채우기.
-        Text('${startTime.toString().padLeft(2, '0')}:00'),
-        Text('${endTime.toString().padLeft(2, '0')}:00'),
+        Text(
+          '${startTime.toString().padLeft(2, '0')}:00',
+          style: textStyle,
+        ),
+        Text(
+          '${endTime.toString().padLeft(2, '0')}:00',
+          style: textStyle,
+        ),
       ],
     );
   }
