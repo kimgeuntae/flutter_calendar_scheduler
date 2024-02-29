@@ -36,26 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
               scheduleCount: 3,
             ),
             SizedBox(height: 8.0),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                child: ListView.separated(
-                  // 아이템 카운트만큼 return 값 빌드, 해당 카운트에 도달했을때 새롭게 만듬.
-                  // 예를들어 현재 보고있는게 5번째라면 6번째이후는 아직 안만들어졌기때문에 메모리에 효과적.
-                  itemCount: 10,
-                  itemBuilder: (context, index) {
-                    return ScheduleCard(
-                      startTime: 8,
-                      endTime: 14,
-                      content: '프로그래밍 공부하기 $index',
-                      color: Colors.red,
-                    );
-                  },
-                  // item 사이에 return 값을 추가해줘서 구분선을 넣는데 사용.
-                  separatorBuilder: (context, index) => SizedBox(height: 8.0),
-                ),
-              ),
-            ),
+            _ScheduleList(),
           ],
         ),
       ),
@@ -68,5 +49,33 @@ class _HomeScreenState extends State<HomeScreen> {
       // 선택날짜를 포커스 데이트로 지정해줌으로써 해당 월로 이동 가능
       this.focusedDay = selectedDay;
     });
+  }
+}
+
+class _ScheduleList extends StatelessWidget {
+  const _ScheduleList({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+        child: ListView.separated(
+          // 아이템 카운트만큼 return 값 빌드, 해당 카운트에 도달했을때 새롭게 만듬.
+          // 예를들어 현재 보고있는게 5번째라면 6번째이후는 아직 안만들어졌기때문에 메모리에 효과적.
+          itemCount: 10,
+          itemBuilder: (context, index) {
+            return ScheduleCard(
+              startTime: 8,
+              endTime: 14,
+              content: '프로그래밍 공부하기 $index',
+              color: Colors.red,
+            );
+          },
+          // item 사이에 return 값을 추가해줘서 구분선을 넣는데 사용.
+          separatorBuilder: (context, index) => SizedBox(height: 8.0),
+        ),
+      ),
+    );
   }
 }
