@@ -20,17 +20,29 @@ class ScheduleCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Row(
-        children: [
-          _Time(
-            startTime: startTime,
-            endTime: endTime,
+      decoration: BoxDecoration(
+        border: Border.all(
+          width: 1.0,
+          color: PRIMARY_COLOR,
+        ),
+        borderRadius: BorderRadius.circular(8.0),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Container(
+          child: Row(
+            children: [
+              _Time(
+                startTime: startTime,
+                endTime: endTime,
+              ),
+              SizedBox(width: 16.0),
+              _Content(content: content),
+              SizedBox(width: 16.0),
+              _Category(color: color),
+            ],
           ),
-          SizedBox(width: 16.0),
-          _Content(content: content),
-          SizedBox(width: 16.0),
-          _Category(color: color),
-        ],
+        ),
       ),
     );
   }
