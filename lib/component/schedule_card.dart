@@ -29,8 +29,11 @@ class ScheduleCard extends StatelessWidget {
       ),
       child: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Container(
+        child: IntrinsicHeight(
+          // IntrinsicHeight: row 내의 크기를 가장 높이가 큰 위젯으로 제한을 함.
+          // 그래서 stretch 크기를 제한할수 있음.
           child: Row(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               _Time(
                 startTime: startTime,
