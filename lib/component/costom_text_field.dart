@@ -5,6 +5,10 @@ class CostomTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextField();
+    return TextField(
+      decoration: InputDecoration(
+        border: InputBorder.none, // 텍스트 필드 아래줄 제거
+      ),
+    );
   }
 }
