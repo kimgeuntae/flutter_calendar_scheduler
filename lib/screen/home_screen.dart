@@ -3,7 +3,6 @@ import 'package:calendar_scheduler/component/schedule_bottom_sheet.dart';
 import 'package:calendar_scheduler/component/schedule_card.dart';
 import 'package:calendar_scheduler/component/today_banner.dart';
 import 'package:calendar_scheduler/const/colors.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -51,6 +50,9 @@ class _HomeScreenState extends State<HomeScreen> {
       onPressed: () {
         showModalBottomSheet(
           context: context,
+          // showModalBottomSheet는 기본 최대사이즈가 전체화면의 절반.
+          // isScrollControlled: true 를 하면 전체사이즈까지 크기를 늘릴수있다.
+          isScrollControlled: true,
           builder: (context) {
             return ScheduleBottomSheet();
           },
