@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'costom_text_field.dart';
+
 class ScheduleBottomSheet extends StatelessWidget {
   const ScheduleBottomSheet({super.key});
 
@@ -17,7 +19,7 @@ class ScheduleBottomSheet extends StatelessWidget {
         padding: EdgeInsets.only(bottom: bottomInset),
         child: Column(
           children: [
-            TextField(),
+            CostomTextField(),
           ],
         ),
       ),
